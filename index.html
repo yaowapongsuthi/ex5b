@@ -83,7 +83,9 @@
                     u1 = "Réaumur";
 			   }
 			   var converted = convertTemperature(t, u);
-			   alert("Temperature is " + converted.value + " in " + converted.unit);
+			   $("#result").html(
+                "Temperature is " + converted.value + " in " + converted.unit
+            );
 			});
 		});
 	</script>
