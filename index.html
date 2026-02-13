@@ -46,6 +46,22 @@
 
             return true;
         }
+				        function convertTemperature(t, u){
+            var result = {};
+            
+            if(u == "F"){
+                result.value = t * (9/5) + 32;
+                result.unit = "Fahrenheit";
+            }else if(u == "K"){
+                result.value = t + 273.15;
+                result.unit = "Kelvin";
+            }else if(u == "R"){
+                result.value = t * (4/5);
+                result.unit = "Réaumur";
+            }
+
+            return result;
+        }
 	    $(document).ready(function(){
 			$("button").click(function(){
 			   var t = Number($('#temp').val());//celsius
@@ -66,8 +82,8 @@
 					t1 = t * (4/5);
                     u1 = "Réaumur";
 			   }
-			   
-			   alert("Temperature is "+t1+" in "+u1);
+			   var converted = convertTemperature(t, u);
+			   alert("Temperature is " + converted.value + " in " + converted.unit);
 			});
 		});
 	</script>
